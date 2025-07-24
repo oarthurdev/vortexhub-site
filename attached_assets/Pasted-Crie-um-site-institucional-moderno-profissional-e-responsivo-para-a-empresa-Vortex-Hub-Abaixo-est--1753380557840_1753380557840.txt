@@ -1,0 +1,89 @@
+Crie um site institucional moderno, profissional e responsivo para a empresa Vortex Hub. Abaixo estão todas as informações necessárias para montar o projeto.
+
+📌 Nome do projeto: Vortex Hub
+
+🎯 Objetivo: Apresentar os serviços, equipe e facilitar o contato com leads qualificados, com um visual alinhado a grandes hubs de marketing, IA e CRM.
+
+🎨 Estilo visual:
+- Cores principais: Roxo (primária), cinza (secundária), branco (background)
+- Design profissional, limpo, moderno
+- Baseado em tendências de sites como: accenture.com, mckinsey.com, rockcontent.com
+- Tipografia limpa, seções bem espaçadas, ícones para os serviços
+
+🧩 Seções do site:
+
+1. **Header**:
+- Logo (a ser adicionado)
+- Navegação: Início | Serviços | Equipe | Contato
+
+2. **Seção Hero**:
+- Título chamativo com botão "Fale com a gente"
+- Visual impactante e leve
+
+3. **Seção de Serviços** (com ícones):
+
+💼 Consultoria e Estratégia Comercial
+- Diagnóstico comercial com foco em crescimento
+- Estruturação de funis de vendas
+- Criação de jornadas do cliente (pré e pós-venda)
+- Treinamento de equipes comerciais
+- Ativação e reativação de leads
+
+🚀 Marketing Digital e Vendas
+- Gestão de tráfego pago (Meta, Google, TikTok Ads)
+- Planejamento e execução de campanhas promocionais
+- Funil de vendas automatizado
+- Lançamentos (imóveis, produtos, serviços)
+
+🎨 Social Media e Conteúdo
+- Planejamento de conteúdo estratégico
+- Criação de artes e vídeos
+- Gestão de redes sociais
+- Copywriting para posts, anúncios e páginas
+
+🤖 Implantação de IA e Automações
+- Fluxos automatizados de atendimento e venda
+- Integrações entre CRM, WhatsApp etc.
+- IA no atendimento comercial
+- Criação de prompts inteligentes para equipes
+
+📊 CRM e Inteligência Comercial
+- Implementação e configuração de Kommo CRM
+- Treinamento de uso
+- Automação de tarefas comerciais
+- Análise de funis e performance
+
+4. **Seção Equipe**:
+Cards com:
+- Fotos e nomes
+- Cargos
+
+Fotos recebidas(Em anexo com o nome da pessoa):
+- Arthur – Programador
+- Rafael – Engenheiro de Prompt
+- Amanda – Storymaker e Social Media
+- Tayane – Fundadora e Diretora de Estratégia Comercial
+
+Fotos pendentes:
+- David – Fundador e Diretor de Tecnologia
+- Djeniffer – Financeira
+
+5. **Seção Contato**:
+- Email: contato@vortexhub.com.br
+- Formulário Kommo (script em anexo deve ser incluido [formulario.js])
+
+6. **Rodapé (Footer)**:
+- Texto: © 2025 Vortex Hub – Todos os direitos reservados. Site criado por Vortex Hub.
+- Badge de parceria Kommo (imagem em anexo)
+
+🌐 Linguagem do site: Português
+🧠 Idioma da comunicação com Replit Agent: Português
+
+✔️ O site deve ser 100% responsivo
+✔️ Código limpo e organizado
+✔️ Estrutura modular (componentes) se possível
+
+📎 Arquivos recebidos:
+- 4 fotos da equipe
+- Badge Kommo Partner
+- Script do formulário Kommo
