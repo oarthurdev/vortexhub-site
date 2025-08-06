@@ -4,23 +4,23 @@ export default function Benefits() {
   const benefits = [
     {
       icon: TrendingUp,
-      title: "Resultados Comprovados",
-      description: "Mais de 500 empresas transformadas com crescimento médio de 300% em vendas"
+      title: "Foco em Crescimento",
+      description: "Estratégias desenvolvidas para gerar impacto real e crescimento sustentável no seu negócio"
     },
     {
       icon: Clock,
-      title: "Implementação Rápida",
-      description: "Primeiros resultados visíveis em até 30 dias com nossa metodologia exclusiva"
+      title: "Implementação Ágil",
+      description: "Metodologia eficiente para implementação rápida de soluções digitais integradas"
     },
     {
       icon: Users,
       title: "Equipe Especializada",
-      description: "Profissionais certificados em IA, CRM e Marketing Digital à sua disposição"
+      description: "Profissionais certificados em IA, CRM e Marketing Digital dedicados ao seu projeto"
     },
     {
       icon: CheckCircle,
-      title: "Suporte Completo",
-      description: "Acompanhamento contínuo e suporte técnico para garantir o sucesso do projeto"
+      title: "Suporte Dedicado",
+      description: "Acompanhamento contínuo e suporte técnico personalizado para garantir seus resultados"
     }
   ];
 
@@ -29,11 +29,11 @@ export default function Benefits() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Por Que Escolher a Vortex Hub?
+            Nossos Diferenciais
           </h2>
           <div className="section-divider mb-8"></div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Somos especialistas em transformar negócios através da tecnologia e estratégias comprovadas
+            Transformamos ideias em resultados através de soluções digitais integradas e personalizadas
           </p>
         </div>
 

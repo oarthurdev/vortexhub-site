@@ -17,6 +17,7 @@ Preferred communication style: Simple, everyday language.
 - **Updated contact information**: Added company address (Rua Engenheiro Emílio Odebrecht, nº 118, Bairro das Nações, 2º andar, Sala 6)
 - **Improved layout**: Reorganized sections for better flow and user engagement
 - **Maintained core functionality**: Preserved all existing services, team structure, and Kommo partner integration
+- **Content adjustment for startup**: Removed false statistics and "Por Que Escolher" sections, replaced with authentic differentials suitable for new company
 
 ## System Architecture
 
