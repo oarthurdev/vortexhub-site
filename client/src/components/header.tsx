@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import vortexLogo from "@assets/468512062_1011071840777526_8774782408988115845_n_1754505856480.jpg";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -13,41 +14,52 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
+    <header className="bg-white/95 backdrop-blur-md shadow-lg sticky top-0 z-50 border-b border-purple-100">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 md:h-20">
           <div className="flex items-center">
-            <div className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">V</span>
+            <div className="flex items-center space-x-3">
+              <img 
+                src={vortexLogo} 
+                alt="Vortex Logo" 
+                className="w-12 h-12 md:w-14 md:h-14 object-contain"
+              />
+              <div className="flex flex-col">
+                <span className="text-xl md:text-2xl font-bold text-gray-900">VORTEX</span>
+                <span className="text-xs text-purple-600 font-medium -mt-1">HUB DE SERVIÇOS</span>
               </div>
-              <span className="text-xl font-bold text-gray-900">Vortex Hub</span>
             </div>
           </div>
           
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
+            <div className="ml-10 flex items-center space-x-8">
               <button 
                 onClick={() => scrollToSection('inicio')}
-                className="text-purple-600 hover:text-purple-700 px-3 py-2 text-sm font-medium transition-colors"
+                className="text-purple-600 hover:text-purple-800 px-4 py-2 text-sm font-semibold transition-all duration-300 hover:bg-purple-50 rounded-lg"
               >
                 Início
               </button>
               <button 
                 onClick={() => scrollToSection('servicos')}
-                className="text-gray-700 hover:text-purple-600 px-3 py-2 text-sm font-medium transition-colors"
+                className="text-gray-700 hover:text-purple-600 px-4 py-2 text-sm font-semibold transition-all duration-300 hover:bg-purple-50 rounded-lg"
               >
                 Serviços
               </button>
               <button 
+                onClick={() => scrollToSection('sobre')}
+                className="text-gray-700 hover:text-purple-600 px-4 py-2 text-sm font-semibold transition-all duration-300 hover:bg-purple-50 rounded-lg"
+              >
+                Sobre Nós
+              </button>
+              <button 
                 onClick={() => scrollToSection('equipe')}
-                className="text-gray-700 hover:text-purple-600 px-3 py-2 text-sm font-medium transition-colors"
+                className="text-gray-700 hover:text-purple-600 px-4 py-2 text-sm font-semibold transition-all duration-300 hover:bg-purple-50 rounded-lg"
               >
                 Equipe
               </button>
               <button 
                 onClick={() => scrollToSection('contato')}
-                className="text-gray-700 hover:text-purple-600 px-3 py-2 text-sm font-medium transition-colors"
+                className="bg-gradient-to-r from-purple-600 to-purple-700 text-white px-6 py-2 rounded-lg text-sm font-semibold hover:from-purple-700 hover:to-purple-800 transition-all duration-300 shadow-md hover:shadow-lg"
               >
                 Contato
               </button>

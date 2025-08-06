@@ -1,5 +1,6 @@
 import Header from "@/components/header";
 import Hero from "@/components/hero";
+import About from "@/components/about";
 import Services from "@/components/services";
 import Benefits from "@/components/benefits";
 import Team from "@/components/team";
@@ -11,6 +12,7 @@ export default function Home() {
     <div className="min-h-screen bg-white">
       <Header />
       <Hero />
+      <About />
       <Services />
       <Benefits />
       <Team />

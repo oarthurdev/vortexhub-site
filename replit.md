@@ -8,6 +8,16 @@ This is a modern, professional, and responsive institutional website for Vortex 
 
 Preferred communication style: Simple, everyday language.
 
+## Recent Changes (August 2025)
+
+- **Complete website refactoring**: Redesigned with modern, professional template focused on Vortex Hub as a services hub
+- **New branding**: Integrated official Vortex logo and updated brand messaging to "Hub de Serviços" 
+- **Enhanced user experience**: Added new "About Us" section, improved hero design with animated elements
+- **Modern visual design**: Implemented dark gradient backgrounds, glass morphism effects, and smooth animations
+- **Updated contact information**: Added company address (Rua Engenheiro Emílio Odebrecht, nº 118, Bairro das Nações, 2º andar, Sala 6)
+- **Improved layout**: Reorganized sections for better flow and user engagement
+- **Maintained core functionality**: Preserved all existing services, team structure, and Kommo partner integration
+
 ## System Architecture
 
 ### Frontend Architecture
