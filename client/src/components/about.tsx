@@ -43,18 +43,19 @@ export default function About() {
             </div>
             
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-              Por Que Escolher a{" "}
+              Seu{" "}
               <span className="bg-gradient-to-r from-purple-600 to-purple-700 bg-clip-text text-transparent">
-                Vortex Hub?
+                Hub de Serviços
               </span>
+              {" "}Digitais
             </h2>
             
             <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-              Somos especialistas em transformar negócios através da tecnologia e estratégias comprovadas.
+              A Vortex Hub nasceu para ser o hub completo de soluções digitais que sua empresa precisa para crescer de forma organizada e sustentável.
             </p>
 
             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              Nossa abordagem integrada combina marketing digital, automações inteligentes e CRM para criar um ecossistema completo de crescimento. Trabalhamos como parceiros do seu sucesso, oferecendo soluções personalizadas que geram resultados reais e mensuráveis.
+              Combinamos estratégias de marketing digital, automações inteligentes e implementação de CRM para criar um ecossistema integrado de crescimento. Nossa missão é organizar e potencializar cada oportunidade do seu negócio através da tecnologia.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
