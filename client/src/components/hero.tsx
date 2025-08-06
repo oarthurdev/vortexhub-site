@@ -8,11 +8,11 @@ export default function Hero() {
     }
   };
 
-  const stats = [
-    { number: "500+", label: "Projetos Entregues", icon: Award },
-    { number: "98%", label: "Taxa de Sucesso", icon: TrendingUp },
-    { number: "200+", label: "Clientes Satisfeitos", icon: Users },
-    { number: "24/7", label: "Suporte Disponível", icon: Zap }
+  const features = [
+    { title: "Hub Completo", label: "Soluções Integradas", icon: Award },
+    { title: "IA & CRM", label: "Tecnologia Avançada", icon: TrendingUp },
+    { title: "Equipe Expert", label: "Profissionais Certificados", icon: Users },
+    { title: "Suporte", label: "Acompanhamento Contínuo", icon: Zap }
   ];
 
   const highlights = [
@@ -78,15 +78,15 @@ export default function Hero() {
             </button>
           </div>
 
-          {/* Stats section */}
+          {/* Features section */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-            {stats.map((stat, index) => {
-              const IconComponent = stat.icon;
+            {features.map((feature, index) => {
+              const IconComponent = feature.icon;
               return (
                 <div key={index} className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 text-center shadow-xl">
                   <IconComponent className="w-8 h-8 text-yellow-400 mx-auto mb-3" />
-                  <div className="text-3xl font-bold text-white mb-1">{stat.number}</div>
-                  <div className="text-purple-200 text-sm font-medium">{stat.label}</div>
+                  <div className="text-xl font-bold text-white mb-1">{feature.title}</div>
+                  <div className="text-purple-200 text-sm font-medium">{feature.label}</div>
                 </div>
               );
             })}

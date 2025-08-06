@@ -8,26 +8,26 @@ export default function About() {
     }
   };
 
-  const values = [
+  const differentials = [
     {
       icon: Target,
       title: "Foco em Resultados",
-      description: "Cada estratégia é pensada para gerar resultados mensuráveis e impacto real no seu negócio."
+      description: "Cada estratégia é desenvolvida com foco em gerar impacto real e mensurável no seu negócio"
     },
     {
       icon: Lightbulb,
-      title: "Inovação Constante",
-      description: "Utilizamos as mais novas tecnologias e metodologias para manter você à frente da concorrência."
+      title: "Implementação Ágil",
+      description: "Metodologia exclusiva para implementação rápida e eficiente de soluções digitais"
     },
     {
       icon: Users,
-      title: "Parceria Verdadeira",
-      description: "Trabalhamos como extensão da sua equipe, comprometidos com o sucesso do seu projeto."
+      title: "Equipe Especializada",
+      description: "Profissionais certificados em IA, CRM e Marketing Digital à sua disposição"
     },
     {
       icon: Award,
-      title: "Excelência Técnica",
-      description: "Profissionais certificados e especializados nas principais plataformas do mercado."
+      title: "Suporte Dedicado",
+      description: "Acompanhamento contínuo e suporte técnico para garantir o sucesso do seu projeto"
     }
   ];
 
@@ -43,19 +43,18 @@ export default function About() {
             </div>
             
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-              Organizando o{" "}
+              Por Que Escolher a{" "}
               <span className="bg-gradient-to-r from-purple-600 to-purple-700 bg-clip-text text-transparent">
-                Crescimento
+                Vortex Hub?
               </span>
-              {" "}de Oportunidades
             </h2>
             
             <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-              A Vortex Hub nasceu com um propósito claro: ser o hub completo de soluções digitais que sua empresa precisa para crescer de forma organizada e sustentável.
+              Somos especialistas em transformar negócios através da tecnologia e estratégias comprovadas.
             </p>
 
             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              Somos especialistas em transformar ideias em resultados concretos através de estratégias integradas de marketing digital, automações inteligentes e implementação de CRM. Nossa missão é organizar e potencializar cada oportunidade de crescimento do seu negócio.
+              Nossa abordagem integrada combina marketing digital, automações inteligentes e CRM para criar um ecossistema completo de crescimento. Trabalhamos como parceiros do seu sucesso, oferecendo soluções personalizadas que geram resultados reais e mensuráveis.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
@@ -75,17 +74,17 @@ export default function About() {
             </div>
           </div>
 
-          {/* Values Grid */}
+          {/* Differentials Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {values.map((value, index) => {
-              const IconComponent = value.icon;
+            {differentials.map((differential, index) => {
+              const IconComponent = differential.icon;
               return (
                 <div key={index} className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
                   <div className="bg-gradient-to-r from-purple-600 to-purple-700 w-14 h-14 rounded-xl flex items-center justify-center mb-6">
                     <IconComponent className="w-7 h-7 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">{value.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{value.description}</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">{differential.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">{differential.description}</p>
                 </div>
               );
             })}
