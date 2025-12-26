@@ -55,7 +55,7 @@ export default function Contact() {
     const container = formContainerRef.current;
     if (container) {
       const kommoDiv = document.createElement("div");
-      kommoDiv.id = "amoforms_1533104";
+      kommoDiv.id = "amoforms_1545076";
       container.appendChild(kommoDiv);
 
       const fallbackTimer = setTimeout(() => {

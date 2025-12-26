@@ -21,7 +21,6 @@
     <link rel="manifest" href="site.webmanifest" />
     <meta name="theme-color" content="#0ea5a4" />
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-    "
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Kommo Form Script -->
@@ -32,6 +31,14 @@
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     <!-- This is a replit script which adds a banner on the top of the page when opened in development mode outside the replit environment -->
-    <script type="text/javascript" src="https://replit.com/public/js/replit-dev-banner.js"></script>
+    <script type="text/javascript">
+      // Only load the Replit dev banner in development mode
+      if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
+        var script = document.createElement("script");
+        script.src = "https://replit.com/public/js/replit-dev-banner.js";
+        script.type = "text/javascript";
+        document.body.appendChild(script);
+      }
+    </script>
   </body>
 </html>
