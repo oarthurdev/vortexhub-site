@@ -45,6 +45,14 @@ export default function Header() {
               >
                 Serviços
               </button>
+              <a
+                href="http://agendafacil.vortexhub.com.br/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-700 hover:text-purple-600 px-4 py-2 text-sm font-semibold transition-all duration-300 hover:bg-purple-50 rounded-lg"
+              >
+                Soluções
+              </a>
               <button 
                 onClick={() => scrollToSection('sobre')}
                 className="text-gray-700 hover:text-purple-600 px-4 py-2 text-sm font-semibold transition-all duration-300 hover:bg-purple-50 rounded-lg"
@@ -91,6 +99,20 @@ export default function Header() {
                 className="text-gray-700 hover:text-purple-600 block px-3 py-2 text-base font-medium w-full text-left"
               >
                 Serviços
+              </button>
+              <a
+                href="http://agendafacil.vortexhub.com.br/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-700 hover:text-purple-600 block px-3 py-2 text-base font-medium w-full text-left"
+              >
+                Soluções
+              </a>
+              <button 
+                onClick={() => scrollToSection('sobre')}
+                className="text-gray-700 hover:text-purple-600 block px-3 py-2 text-base font-medium w-full text-left"
+              >
+                Sobre Nós
               </button>
               <button 
                 onClick={() => scrollToSection('equipe')}
