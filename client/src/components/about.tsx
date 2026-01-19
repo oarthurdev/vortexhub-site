@@ -1,6 +1,19 @@
 import { Target, Lightbulb, Users, Award, ArrowRight } from "lucide-react";
 
+/**
+ * Componente About
+ * 
+ * Renderiza a seção "Sobre Nós" da página da Vortex Hub.
+ * Apresenta uma visão geral da empresa, seus principais diferenciais e sua missão.
+ * Inclui botões de chamada para ação (CTA) que navegam para outras seções da página.
+ *
+ * @returns {JSX.Element} A seção "Sobre" renderizada.
+ */
 export default function About() {
+  /**
+   * Rola a página suavemente até a seção com o ID fornecido.
+   * @param {string} sectionId - O ID do elemento para o qual rolar.
+   */
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
