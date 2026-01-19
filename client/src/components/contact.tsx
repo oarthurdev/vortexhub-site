@@ -1,6 +1,20 @@
 import { useEffect, useRef } from "react";
 import { Mail, Clock } from "lucide-react";
 
+/**
+ * Renderiza a seção de contato do site.
+ *
+ * Este componente exibe informações de contato, horário de atendimento e um formulário
+ * de contato incorporado do Kommo CRM. Foi projetado para ser uma seção independente
+ * que pode ser colocada em qualquer página.
+ *
+ * O formulário é carregado através de um `iframe` para simplicidade e confiabilidade.
+ * Nota: Os hooks `useEffect` neste componente são resquícios de uma implementação
+ * anterior que carregava o formulário via script e fornecia um fallback.
+ * Atualmente, eles não estão ativos, pois a `formContainerRef` não está anexada a nenhum elemento.
+ *
+ * @returns {JSX.Element} O componente da seção de contato.
+ */
 export default function Contact() {
   useEffect(() => {
     // 1) Define os parametros globais esperados pelo loader

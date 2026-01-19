@@ -1,5 +1,26 @@
 import { CheckCircle, Clock, Users, TrendingUp } from "lucide-react";
 
+/**
+ * @component Benefits
+ * @description A section component that displays the key benefits or differentiators of a service or product.
+ * It features a title, a subtitle, a grid of benefits with icons and descriptions, and a call-to-action button
+ * that scrolls the user to the contact section.
+ * This component is self-contained and does not accept any props.
+ *
+ * @returns {JSX.Element} The rendered benefits section.
+ *
+ * @example
+ * // To use this component, simply import it and include it in your page layout.
+ * import Benefits from './components/benefits';
+ *
+ * function MyPage() {
+ *   return (
+ *     <div>
+ *       <Benefits />
+ *     </div>
+ *   );
+ * }
+ */
 export default function Benefits() {
   const benefits = [
     {
