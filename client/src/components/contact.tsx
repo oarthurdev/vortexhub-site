@@ -5,8 +5,8 @@ export default function Contact() {
   useEffect(() => {
     // 1) Define os parametros globais esperados pelo loader
     (window as any).amoFormsParams = {
-      id: "1545076",
-      hash: "7088c12c9a9c2a11e45f1ba659724a85",
+      id: "1651071",
+      hash: "8d19d1a8ca3e77b5c3adf7c362202a4d",
       locale: "pt",
       // opcional: meta, utm etc.
       setMeta: (p: any) => {
@@ -55,7 +55,7 @@ export default function Contact() {
     const container = formContainerRef.current;
     if (container) {
       const kommoDiv = document.createElement("div");
-      kommoDiv.id = "amoforms_1545076";
+      kommoDiv.id = "amoforms_1651071";
       container.appendChild(kommoDiv);
 
       const fallbackTimer = setTimeout(() => {
@@ -140,11 +140,11 @@ export default function Contact() {
             <div className="flex justify-center rounded-b-2xl overflow-hidden">
               <iframe
                 title="Formulário de Contato Kommo"
-                src="https://forms.kommo.com/forms/html/form_1545076_7088c12c9a9c2a11e45f1ba659724a85.html?date=1755190987#{%22form_id%22:%221545076%22,%22form_hash%22:%227088c12c9a9c2a11e45f1ba659724a85%22,%22user_origin%22:{%22datetime%22:%22Thu%20Aug%2014%202025%2014:03:07%20GMT-0300%20(Hor%C3%A1rio%20Padr%C3%A3o%20de%20Bras%C3%ADlia)%22,%22timezone%22:%22America/Sao_Paulo%22,%22referer%22:%22https://tayane.kommo.com/%22},%22is_modal%22:false,%22success_message%22:%22%22,%22has_redirect%22:%22%22,%22is_dark_bg%22:true,%22utm%22:{%22source%22:%22%22,%22medium%22:%22%22,%22content%22:%22%22,%22campaign%22:%22%22,%22term%22:%22%22},%22ga%22:{},%22location%22:%22https://forms.kommo.com/rwdwlzc%22,%22dp%22:{}}"
+                src="https://forms.kommo.com/forms/html/form_1651071_8d19d1a8ca3e77b5c3adf7c362202a4d.html?date=1755190987#%7B%22form_id%22:%221651071%22,%22form_hash%22:%228d19d1a8ca3e77b5c3adf7c362202a4d%22,%22user_origin%22:%7B%22datetime%22:%22Thu%20Aug%2014%202025%2014:03:07%20GMT-0300%20(Hor%C3%A1rio%20Padr%C3%A3o%20de%20Bras%C3%ADlia)%22,%22timezone%22:%22America/Sao_Paulo%22,%22referer%22:%22https://tayane.kommo.com/%22%7D,%22is_modal%22:false,%22success_message%22:%22%22,%22has_redirect%22:%22%22,%22is_dark_bg%22:true,%22utm%22:%7B%22source%22:%22%22,%22medium%22:%22%22,%22content%22:%22%22,%22campaign%22:%22%22,%22term%22:%22%22%7D,%22ga%22:%7B%7D,%22location%22:%22https://forms.kommo.com/rwdwlzc%22,%22dp%22:%7B%7D%7D"
                 className="
                   block border-0
                   w-[500px] max-w-full
-                  h-[660px] sm:h-[660px] md:h-[660px] lg:h-[660px] xl:h-[660px]
+                  h-[530px] sm:h-[530px] md:h-[530px] lg:h-[530px] xl:h-[530px]
                   rounded-b-2xl
                   shadow-lg
                 "

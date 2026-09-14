@@ -52,12 +52,6 @@ export default function Header() {
                 Sobre Nós
               </button>
               <button 
-                onClick={() => scrollToSection('equipe')}
-                className="text-gray-700 hover:text-purple-600 px-4 py-2 text-sm font-semibold transition-all duration-300 hover:bg-purple-50 rounded-lg"
-              >
-                Equipe
-              </button>
-              <button 
                 onClick={() => scrollToSection('contato')}
                 className="bg-gradient-to-r from-purple-600 to-purple-700 text-white px-6 py-2 rounded-lg text-sm font-semibold hover:from-purple-700 hover:to-purple-800 transition-all duration-300 shadow-md hover:shadow-lg"
               >
@@ -91,12 +85,6 @@ export default function Header() {
                 className="text-gray-700 hover:text-purple-600 block px-3 py-2 text-base font-medium w-full text-left"
               >
                 Serviços
-              </button>
-              <button 
-                onClick={() => scrollToSection('equipe')}
-                className="text-gray-700 hover:text-purple-600 block px-3 py-2 text-base font-medium w-full text-left"
-              >
-                Equipe
               </button>
               <button 
                 onClick={() => scrollToSection('contato')}
