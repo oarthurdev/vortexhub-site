@@ -1,5 +1,13 @@
-import { createRoot } from "react-dom/client";
+import { createRoot, hydrateRoot } from "react-dom/client";
 import App from "./App";
 import "./index.css";
 
-createRoot(document.getElementById("root")!).render(<App />);
+const container = document.getElementById("root")!;
+
+// Production pages are prerendered (scripts/prerender.mjs) and hydrated;
+// the dev server serves an empty shell and renders on the client.
+if (container.firstElementChild) {
+  hydrateRoot(container, <App />);
+} else {
+  createRoot(container).render(<App />);
+}

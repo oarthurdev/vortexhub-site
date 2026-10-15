@@ -1,7 +1,11 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
+import { fileURLToPath } from "url";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
+
+// ESM-safe (the config is also bundled into the production server)
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const isDev = process.env.NODE_ENV !== "production";
 const isReplit = typeof process.env.REPL_ID !== "undefined";

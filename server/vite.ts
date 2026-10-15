@@ -40,8 +40,8 @@ function buildCsp(nonce: string) {
     "frame-src https://forms.kommo.com",
     // XHR/fetch do Kommo
     "connect-src 'self' https://forms.kommo.com",
-    // Fonts locais/data
-    "font-src 'self' data:",
+    // Fonte self-hosted (client/public/fonts)
+    "font-src 'self'",
     // Submissão do form
     "form-action 'self' https://forms.kommo.com",
     "base-uri 'self'",
@@ -107,7 +107,12 @@ export async function setupVite(app: Express, server: Server) {
       const withNonceMeta = injectNonceMeta(template, nonce);
 
       // deixa o Vite fazer as mágicas (HMR, envs, etc.)
-      const transformed = await vite.transformIndexHtml(url, withNonceMeta);
+      // Vite injects inline scripts (React refresh preamble); give them the request nonce
+      // so the dev CSP below doesn't block them.
+      const transformed = (await vite.transformIndexHtml(url, withNonceMeta)).replace(
+        /<script(?![^>]*\bnonce=)/g,
+        `<script nonce="${nonce}"`,
+      );
 
       // aplica CSP
       res
@@ -127,7 +132,8 @@ export async function setupVite(app: Express, server: Server) {
 }
 
 export function serveStatic(app: Express) {
-  const distPath = path.resolve(__dirname, "public");
+  // Bundled to dist/index.js; the prerendered site lives in server/public.
+  const distPath = path.resolve(import.meta.dirname, "..", "server", "public");
 
   if (!fs.existsSync(distPath)) {
     throw new Error(
@@ -135,31 +141,44 @@ export function serveStatic(app: Express) {
     );
   }
 
-  // assets estáticos com cache
-  app.use(express.static(distPath, {
-    fallthrough: true,
-    // você pode adicionar cache-control aqui se quiser
-  }));
+  // Static assets (hashed files, fonts, images, sitemap…). HTML pages are handled below.
+  app.use(
+    "/assets",
+    express.static(path.join(distPath, "assets"), { immutable: true, maxAge: "1y" }),
+  );
+  app.use(express.static(distPath, { index: false, redirect: false, extensions: [] }));
 
-  // SPA fallback COM CSP + nonce + meta
-  app.get("*", (_req, res) => {
-    const indexFile = path.join(distPath, "index.html");
-    if (!fs.existsSync(indexFile)) {
-      return res.status(500).send("index.html not found");
-    }
-
+  const sendHtml = (res: express.Response, file: string, status = 200) => {
     const nonce = genNonce();
-    let html = fs.readFileSync(indexFile, "utf-8");
-    html = injectNonceMeta(html, nonce);
-
+    const html = injectNonceMeta(fs.readFileSync(file, "utf-8"), nonce);
     res
-      .status(200)
+      .status(status)
       .set({
-        "Content-Type": "text/html",
+        "Content-Type": "text/html; charset=utf-8",
         "Content-Security-Policy": buildCsp(nonce),
         "Referrer-Policy": "strict-origin-when-cross-origin",
         "X-Content-Type-Options": "nosniff",
       })
       .send(html);
+  };
+
+  // Prerendered pages: /servicos and /servicos/ both resolve to servicos/index.html
+  // (the former redirects to the canonical trailing-slash URL).
+  app.get("*", (req, res) => {
+    const reqPath = decodeURIComponent(req.path);
+    const file = path.join(distPath, reqPath, "index.html");
+    const insideRoot = file.startsWith(distPath + path.sep);
+
+    if (insideRoot && fs.existsSync(file)) {
+      if (!reqPath.endsWith("/")) {
+        const query = req.originalUrl.slice(req.path.length);
+        return res.redirect(301, `${reqPath}/${query}`);
+      }
+      return sendHtml(res, file);
+    }
+
+    const notFound = path.join(distPath, "404.html");
+    if (fs.existsSync(notFound)) return sendHtml(res, notFound, 404);
+    res.status(404).send("Not found");
   });
 }

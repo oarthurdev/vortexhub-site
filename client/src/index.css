@@ -2,138 +2,402 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Plus Jakarta Sans (SIL OFL 1.1), self-hosted variable font — latin subset covers pt-BR. */
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url("/fonts/plus-jakarta-sans-latin.woff2") format("woff2");
+}
+
+/* ------------------------------------------------------------------ */
+/* Design tokens                                                       */
+/* ------------------------------------------------------------------ */
 :root {
+  /* Surfaces — near-black with the aubergine tint of the logo */
+  --ink-950: 9 7 15;      /* #09070F page background (dark) */
+  --ink-900: 15 11 25;    /* #0F0B19 sections */
+  --ink-800: 23 17 38;    /* #171126 raised surfaces */
+  --ink-700: 36 27 55;    /* #241B37 strong borders */
+  --mist: 246 244 249;    /* #F6F4F9 light sections */
+
+  /* Brand violet — anchored on the logo purple (#4F006D) */
+  --brand-50: 245 238 255;
+  --brand-100: 237 226 255;
+  --brand-300: 196 161 255; /* accent text on dark — 9.4:1 */
+  --brand-400: 168 116 245;
+  --brand-500: 139 69 238;
+  --brand-600: 122 43 219;  /* primary action — white text 6.6:1 */
+  --brand-700: 106 31 196;
+  --brand-800: 79 0 109;    /* logo purple */
+
+  /* Complementary signal (data flow), used sparingly on dark */
+  --signal: 79 227 193;
+
+  /* Text */
+  --on-dark: 244 241 250;
+  --on-dark-muted: 169 161 188;  /* 8.1:1 on ink-950 */
+  --on-light: 27 19 38;
+  --on-light-muted: 93 84 112;   /* 6.5:1 on mist */
+
+  /* Layout */
+  --container-max: 1200px;
+  --gutter: clamp(1rem, 4vw, 2rem);
+  --section-y: clamp(4.5rem, 9vw, 7.5rem);
+  --header-h: 72px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 160ms;
+  --dur-base: 280ms;
+
+  /* shadcn/ui compatibility tokens (used by components/ui) */
   --background: hsl(0, 0%, 100%);
-  --foreground: hsl(222, 84%, 4.9%);
-  --muted: hsl(210, 40%, 96%);
-  --muted-foreground: hsl(215, 16%, 47%);
+  --foreground: hsl(270, 33%, 11%);
+  --muted: hsl(264, 27%, 97%);
+  --muted-foreground: hsl(260, 14%, 38%);
   --popover: hsl(0, 0%, 100%);
-  --popover-foreground: hsl(222, 84%, 4.9%);
+  --popover-foreground: hsl(270, 33%, 11%);
   --card: hsl(0, 0%, 100%);
-  --card-foreground: hsl(222, 84%, 4.9%);
-  --border: hsl(214, 32%, 91%);
-  --input: hsl(214, 32%, 91%);
-  --primary: hsl(262, 83%, 58%);
-  --primary-foreground: hsl(210, 40%, 98%);
-  --secondary: hsl(210, 40%, 96%);
-  --secondary-foreground: hsl(222, 47%, 11%);
-  --accent: hsl(210, 40%, 96%);
-  --accent-foreground: hsl(222, 47%, 11%);
-  --destructive: hsl(0, 84%, 60%);
-  --destructive-foreground: hsl(210, 40%, 98%);
-  --ring: hsl(262, 83%, 58%);
-  --radius: 0.5rem;
-  --purple-50: hsl(270, 100%, 98%);
-  --purple-100: hsl(269, 100%, 95%);
-  --purple-500: hsl(262, 83%, 58%);
-  --purple-600: hsl(263, 70%, 50%);
-  --purple-700: hsl(262, 57%, 42%);
-  --purple-800: hsl(263, 69%, 34%);
-  --purple-900: hsl(264, 69%, 26%);
+  --card-foreground: hsl(270, 33%, 11%);
+  --border: hsl(264, 20%, 90%);
+  --input: hsl(264, 20%, 90%);
+  --primary: hsl(268, 71%, 51%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(264, 27%, 97%);
+  --secondary-foreground: hsl(270, 33%, 11%);
+  --accent: hsl(264, 27%, 97%);
+  --accent-foreground: hsl(270, 33%, 11%);
+  --destructive: hsl(0, 72%, 51%);
+  --destructive-foreground: hsl(0, 0%, 100%);
+  --ring: hsl(268, 71%, 51%);
+  --radius: 0.75rem;
 }
 
-.dark {
-  --background: hsl(222, 84%, 4.9%);
-  --foreground: hsl(210, 40%, 98%);
-  --muted: hsl(217, 32%, 17%);
-  --muted-foreground: hsl(215, 16%, 57%);
-  --popover: hsl(222, 84%, 4.9%);
-  --popover-foreground: hsl(210, 40%, 98%);
-  --card: hsl(222, 84%, 4.9%);
-  --card-foreground: hsl(210, 40%, 98%);
-  --border: hsl(217, 32%, 17%);
-  --input: hsl(217, 32%, 17%);
-  --primary: hsl(262, 83%, 58%);
-  --primary-foreground: hsl(210, 40%, 98%);
-  --secondary: hsl(217, 32%, 17%);
-  --secondary-foreground: hsl(210, 40%, 98%);
-  --accent: hsl(217, 32%, 17%);
-  --accent-foreground: hsl(210, 40%, 98%);
-  --destructive: hsl(0, 62%, 30%);
-  --destructive-foreground: hsl(210, 40%, 98%);
-  --ring: hsl(262, 83%, 58%);
-}
-
+/* ------------------------------------------------------------------ */
+/* Base                                                                */
+/* ------------------------------------------------------------------ */
 @layer base {
   * {
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--header-h) + 16px);
+    -webkit-text-size-adjust: 100%;
+  }
+
   body {
-    @apply font-sans antialiased bg-background text-foreground;
-    font-family: 'Inter', system-ui, sans-serif;
+    @apply bg-ink-950 font-sans text-on-dark antialiased;
+    font-feature-settings: "ss01";
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 2px solid rgb(var(--brand-400));
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  ::selection {
+    background: rgb(var(--brand-500) / 0.35);
   }
 }
 
-@layer utilities {
-  .text-purple-600 {
-    color: hsl(263, 70%, 50%);
+/* ------------------------------------------------------------------ */
+/* Components                                                          */
+/* ------------------------------------------------------------------ */
+@layer components {
+  .site-container {
+    width: 100%;
+    max-width: var(--container-max);
+    margin-inline: auto;
+    padding-inline: var(--gutter);
   }
-  
-  .bg-purple-600 {
-    background-color: hsl(263, 70%, 50%);
+
+  .section {
+    padding-block: var(--section-y);
+  }
+
+  .surface-dark {
+    @apply bg-ink-950 text-on-dark;
+  }
+
+  .surface-light {
+    @apply bg-mist text-on-light;
+  }
+
+  /* Typography scale */
+  .type-display {
+    font-size: clamp(2.3rem, 1.4rem + 3.8vw, 4.1rem);
+    line-height: 1.04;
+    font-weight: 800;
+    letter-spacing: -0.035em;
+  }
+
+  .type-h1 {
+    font-size: clamp(2.1rem, 1.4rem + 3vw, 3.6rem);
+    line-height: 1.08;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+  }
+
+  .type-h2 {
+    font-size: clamp(1.8rem, 1.3rem + 2vw, 2.85rem);
+    line-height: 1.12;
+    font-weight: 750;
+    letter-spacing: -0.028em;
+  }
+
+  .type-h3 {
+    font-size: clamp(1.15rem, 1.05rem + 0.4vw, 1.35rem);
+    line-height: 1.3;
+    font-weight: 700;
+  }
+
+  .type-lead {
+    font-size: clamp(1.05rem, 1rem + 0.35vw, 1.25rem);
+    line-height: 1.6;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase;
+    letter-spacing: 0.14em;
+  }
+
+  .eyebrow::before {
+    content: "";
+    width: 18px;
+    height: 2px;
+    border-radius: 2px;
+    background: currentColor;
+    opacity: 0.8;
+  }
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full text-center font-semibold;
+    min-height: 48px;
+    padding: 0.75rem 1.4rem;
+    font-size: 0.95rem;
+    transition:
+      background-color var(--dur-fast) var(--ease-out),
+      border-color var(--dur-fast) var(--ease-out),
+      color var(--dur-fast) var(--ease-out),
+      box-shadow var(--dur-base) var(--ease-out),
+      transform var(--dur-fast) var(--ease-out);
+  }
+
+  .btn:active {
+    transform: translateY(1px);
+  }
+
+  .btn svg {
+    transition: transform var(--dur-base) var(--ease-out);
+  }
+
+  .btn:hover svg.icon-shift {
+    transform: translateX(3px);
+  }
+
+  .btn-primary {
+    @apply bg-brand-600 text-white;
+    box-shadow:
+      0 0 0 1px rgb(var(--brand-400) / 0.4) inset,
+      0 8px 24px -10px rgb(var(--brand-500) / 0.7);
+  }
+
+  .btn-primary:hover {
+    @apply bg-brand-700;
+    box-shadow:
+      0 0 0 1px rgb(var(--brand-300) / 0.5) inset,
+      0 10px 30px -10px rgb(var(--brand-500) / 0.9);
+  }
+
+  .btn-outline-dark {
+    @apply border border-white/15 text-on-dark;
+    background: rgb(255 255 255 / 0.03);
+  }
+
+  .btn-outline-dark:hover {
+    @apply border-white/30;
+    background: rgb(255 255 255 / 0.07);
+  }
+
+  .btn-outline-light {
+    @apply border border-on-light/15 bg-white text-on-light;
+  }
+
+  .btn-outline-light:hover {
+    @apply border-brand-600/50 text-brand-700;
+  }
+
+  .btn-sm {
+    min-height: 40px;
+    padding: 0.5rem 1.05rem;
+    font-size: 0.875rem;
+  }
+
+  /* Text link with arrow */
+  .link-arrow {
+    @apply inline-flex items-center gap-1.5 font-semibold;
+    min-height: 44px;
+  }
+
+  .link-arrow svg {
+    transition: transform var(--dur-base) var(--ease-out);
+  }
+
+  .link-arrow:hover svg {
+    transform: translateX(3px);
+  }
+
+  /* Cards */
+  .card-light {
+    @apply rounded-2xl border border-on-light/10 bg-white;
+    box-shadow: 0 1px 2px rgb(27 19 38 / 0.04), 0 12px 32px -20px rgb(27 19 38 / 0.18);
+  }
+
+  .card-dark {
+    @apply rounded-2xl border border-white/10;
+    background: linear-gradient(180deg, rgb(var(--ink-800) / 0.9), rgb(var(--ink-900) / 0.9));
+  }
+
+  /* Subtle grid backdrop for dark sections */
+  .bg-grid {
+    background-image:
+      linear-gradient(rgb(255 255 255 / 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(255 255 255 / 0.035) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 30%, transparent 75%);
+  }
+
+  .glow-brand {
+    background: radial-gradient(closest-side, rgb(var(--brand-600) / 0.35), transparent);
+  }
+
+  /* Native <details> accordion */
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+  }
+
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item .faq-icon {
+    transition: transform var(--dur-base) var(--ease-out);
+  }
+
+  .faq-item[open] .faq-icon {
+    transform: rotate(45deg);
+  }
+
+  .sr-only-focusable:not(:focus) {
+    @apply sr-only;
   }
 }
 
-/* Custom animations and styles for Vortex Hub */
-@keyframes blob {
+/* ------------------------------------------------------------------ */
+/* Motion — progressive enhancement only, content never depends on it  */
+/* ------------------------------------------------------------------ */
+@media (prefers-reduced-motion: no-preference) {
+  /* Scroll-driven reveal: pure CSS, no JS; unsupported browsers simply show content. */
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: reveal-up linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 35%;
+    }
+  }
+
+  .orbit-spin {
+    animation: orbit 60s linear infinite;
+  }
+
+  .orbit-spin-reverse {
+    animation: orbit 90s linear infinite reverse;
+  }
+
+  .flow-travel {
+    animation: travel 4.5s var(--ease-out) infinite;
+  }
+
+  .pulse-dot {
+    animation: pulse-dot 2.8s var(--ease-out) infinite;
+  }
+
+  .faq-item[open] .faq-body {
+    animation: fade-down var(--dur-base) var(--ease-out);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Transform only: content is never rendered at reduced opacity/contrast */
+@keyframes reveal-up {
+  from {
+    transform: translateY(28px);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes travel {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(110%);
+  }
+}
+
+/* Keeps the -50% centering of the pulse element while scaling */
+@keyframes pulse-dot {
   0% {
-    transform: translate(0px, 0px) scale(1);
+    opacity: 0.9;
+    transform: translate(-50%, -50%) scale(1);
   }
-  33% {
-    transform: translate(30px, -50px) scale(1.1);
-  }
-  66% {
-    transform: translate(-20px, 20px) scale(0.9);
-  }
+  70%,
   100% {
-    transform: translate(0px, 0px) scale(1);
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(2.6);
   }
 }
 
-.animate-blob {
-  animation: blob 7s infinite;
-}
-
-.animation-delay-2000 {
-  animation-delay: 2s;
-}
-
-.animation-delay-4000 {
-  animation-delay: 4s;
-}
-
-/* Glass morphism effect */
-.glass-effect {
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-
-/* Custom gradients */
-.gradient-purple {
-  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
-}
-
-/* Smooth scroll behavior */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Custom hover effects */
-.card-hover {
-  transition: all 0.3s ease;
-}
-
-.card-hover:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-}
-
-/* Section divider */
-.section-divider {
-  width: 80px;
-  height: 4px;
-  background: linear-gradient(90deg, #8b5cf6, #7c3aed);
-  margin: 0 auto;
-  border-radius: 2px;
+@keyframes fade-down {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
