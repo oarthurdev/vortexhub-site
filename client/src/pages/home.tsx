@@ -57,15 +57,15 @@ function TrustStrip() {
       <div className="site-container grid gap-6 py-7 xl:grid-cols-[auto_1fr] xl:items-center xl:gap-10">
         <div className="flex items-center gap-4">
           <img src={kommoPartner} alt="Kommo partner" width={106} height={40} className="h-10 w-auto" />
-          <p className="text-sm leading-snug text-on-dark">
+          <p className="max-w-[260px] text-sm leading-snug text-on-dark">
             <span className="font-semibold">{company.kommoPartner.title}</span>
             <br />
             <span className="text-on-dark-muted">{company.kommoPartner.subtitle}</span>
           </p>
         </div>
-        <ul className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-on-dark-muted xl:justify-end">
+        <ul className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-on-dark-muted xl:flex-nowrap xl:justify-end">
           {services.map((s) => (
-            <li key={s.slug} className="inline-flex items-center gap-2">
+            <li key={s.slug} className="inline-flex items-center gap-2 whitespace-nowrap">
               <Check aria-hidden className="h-4 w-4 text-signal" />
               {s.shortName}
             </li>
@@ -84,41 +84,43 @@ const symptoms = [
 
 function Approach() {
   return (
-    <section id="sobre" className="surface-light section">
+    <section id="sobre" className="surface-dark section relative isolate overflow-hidden">
+      <div aria-hidden className="glow-brand absolute -left-60 top-1/3 -z-10 h-[620px] w-[620px] opacity-40" />
       <div className="site-container grid gap-14 lg:grid-cols-2 lg:gap-20">
         <div>
           <SectionHeading
+            tone="dark"
             eyebrow="Por que integrar"
             title="Quando marketing, vendas e tecnologia não conversam, oportunidades escapam."
           />
           <ul className="mt-10 grid gap-4">
             {symptoms.map((s) => (
-              <li key={s} className="reveal flex gap-4 rounded-2xl border border-on-light/10 bg-white p-5">
-                <AlertTriangle aria-hidden className="mt-0.5 h-5 w-5 shrink-0 text-brand-700" />
-                <p className="text-on-light-muted">{s}</p>
+              <li key={s} className="reveal card-dark flex gap-4 p-5">
+                <AlertTriangle aria-hidden className="mt-0.5 h-5 w-5 shrink-0 text-brand-300" />
+                <p className="text-on-dark-muted">{s}</p>
               </li>
             ))}
           </ul>
         </div>
         <div className="lg:pt-14">
-          <p className="type-lead text-on-light">
-            A Vortex Hub atua como um <strong className="font-bold text-brand-700">hub</strong>: um único parceiro
+          <p className="type-lead text-on-dark">
+            A Vortex Hub atua como um <strong className="font-bold text-brand-300">hub</strong>: um único parceiro
             que olha para a sua operação comercial de ponta a ponta e conecta as peças — da estratégia à automação.
           </p>
-          <p className="mt-5 text-on-light-muted">
+          <p className="mt-5 text-on-dark-muted">
             Em vez de contratar agência, consultoria e implementador de CRM separadamente, você tem uma equipe que
             desenha o processo, gera a demanda, organiza o funil e automatiza o que for repetitivo — com cada frente
             sabendo o que a outra está fazendo.
           </p>
           <dl className="mt-10 grid gap-6 sm:grid-cols-2">
             {differentials.map((d) => (
-              <div key={d.title} className="reveal border-t-2 border-brand-600 pt-4">
-                <dt className="font-bold text-on-light">{d.title}</dt>
-                <dd className="mt-2 text-sm leading-relaxed text-on-light-muted">{d.text}</dd>
+              <div key={d.title} className="reveal border-t-2 border-brand-500 pt-4">
+                <dt className="font-bold text-on-dark">{d.title}</dt>
+                <dd className="mt-2 text-sm leading-relaxed text-on-dark-muted">{d.text}</dd>
               </div>
             ))}
           </dl>
-          <ButtonLink href="/sobre/" variant="outline-light" arrow className="mt-10">
+          <ButtonLink href="/sobre/" variant="outline-dark" arrow className="mt-10">
             Conhecer a Vortex Hub
           </ButtonLink>
         </div>
